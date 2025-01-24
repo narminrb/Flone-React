@@ -3,3 +3,22 @@
     margin: 0 auto;
     padding: 0 16px; 
   }
+  .buttonsContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .button {
+    background: transparent;
+    margin: 5px 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  
+  .active {
+  color: #ed59a0;
+}
