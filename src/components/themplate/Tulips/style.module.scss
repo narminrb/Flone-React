@@ -1,0 +1,33 @@
+.customContainer {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 16px; 
+  }
+.root{
+    width: 100%;
+    border-radius: 12px;
+    height: 520px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+.rootItems{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+}
+
+.rootElements{
+    p{
+        font-size: 1.5rem;
+        margin: 20px 0;
+    }
+    h1{
+        max-width: 400px;
+        font-size: 2.2rem;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+}

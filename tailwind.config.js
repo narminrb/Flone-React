@@ -19,9 +19,11 @@ module.exports = {
         customBrown:'#8B4513',
         customCyan:'#17A2B8',
         customHearthstone:'#929292',
+        customSecPink:'#ed59a0;'
       },
       fontFamily: {
-        poppins: ["Poppins", "serif"]
+        poppins: ["Poppins", "serif"],
+        
       },
     },
   },

@@ -39,5 +39,28 @@
         color: black;
         background-color: #ebe2e1;
     }
+    &.pink{
+        background-color: #ed59a0;
+        color: #fff;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 1;
+        padding: 13px 33px;
+        text-transform: uppercase;
+        border: none;
+    }
+    &.subscribe{
+        background-color: #ed59a0;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 500;
+        height: auto;
+        letter-spacing: 2px;
+        line-height: 1;
+        padding: 17px 55px;
+        text-transform: uppercase;
+        width: auto;
+    }
 
 }
