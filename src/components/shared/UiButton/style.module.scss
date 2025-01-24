@@ -1,0 +1,43 @@
+.btn{
+    color: inherit;
+    background-color: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #333;
+    color: #010101;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1;
+    padding: 19px 50px;
+    text-transform: uppercase;
+    &.primary{
+        color: white;
+        background-color: #007bff;
+        border: 1px solid #007bff;
+    }
+    &.secondary{
+        color: black;
+        background-color: red;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+    &:focus{
+        outline: none;
+    }
+    &:disabled{
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    &.success{
+        color: white;
+        background-color: green;
+    }
+    &.light{
+        color: black;
+        background-color: #ebe2e1;
+    }
+
+}
