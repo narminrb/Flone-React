@@ -5,27 +5,27 @@ export const NAVBAR_ELEMENT = [{
 },
 {
     id:2,
+    path: "/shop",
+    name: "Shop"
+},
+{
+    id:3,
+    path: "/collection",
+    name: "Collection"
+},
+{
+    id:4,
+    path: "/pages",
+    name: "Pages"
+},
+{
+    id:5,
     path: "/blog",
     name: "Blog"
 },
 {
-    id:3,
-    path: "/services",
-    name: "Services"
-},
-{
-    id:4,
+    id:6,
     path: "/contact",
     name: "Contact"
-},
-{
-    id:5,
-    path: "/login",
-    name: "Login"
-},
-{
-    id:6,
-    path: "/admin/products",
-    name: "Products"
 }
 ]

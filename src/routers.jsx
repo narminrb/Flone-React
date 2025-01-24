@@ -6,6 +6,8 @@ import BlogDetail from "./pages/ui/blog-detail";
 import ContactPage from "./pages/ui/contact";
 import LoginLayout from "./components/layout/LoginLayout";
 import BlogPage from "./pages/ui/blog";
+import LoginPage from "./pages/ui/register";
+import RegisterPage from "./pages/ui/register";
 
 
 export const router = createBrowserRouter([
@@ -35,10 +37,14 @@ export const router = createBrowserRouter([
     {
         path:"/contact",
         element: <ContactPage/>,  
+    },
+    {
+        path: "/register",
+        element: <RegisterPage/>,
     }
 ]},
     {
-        path: "/login",
-        element: <LoginLayout/>,
+        path: "/register",
+        element: <RegisterPage/>,
     }
   ]);

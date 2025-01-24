@@ -1,15 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { NAVBAR_ELEMENT } from '../../../constants/nav-item'
+import { USER_ELEMENT } from '../../../constants/user-items'
 import styles from "./style.module.scss"
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import UiButton from '../../shared/UiButton';
-
+import clsx from 'clsx';
 
 const HomeBanner = () => {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const handleDropdownToggle = () => {
+        setIsDropdownOpen(prevState => !prevState);
+      };
+      
+
+     const location = useLocation();
+        const activePath = (path) =>{
+            if (location.pathname === path){
+                return "active_nav"
+            }
+        }
   return (
     <div className='realative'>
          <div className={styles.customContainer}>
@@ -31,10 +45,36 @@ const HomeBanner = () => {
                 <Link to="#" className="block text-gray-900 transition-all duration-500 hover:text-indigo-600 text-lg sm:text-base"
                 ><i className="ri-search-line"></i>
                 </Link>
-                <Link to="#" className="block text-gray-900 transition-all duration-500 hover:text-indigo-600 text-lg sm:text-base"
-                ><i className="ri-user-5-line"></i>
-                </Link>
-                <Link to="#" className="block text-gray-900 transition-all duration-500 hover:text-indigo-600 text-lg sm:text-base"
+                <div className="relative">
+                    <Link
+                        to="#"
+                        className="block text-gray-900 transition-all duration-500 hover:text-indigo-600"
+                        onClick={handleDropdownToggle} 
+                    >
+                        <i className="ri-user-5-line"></i>
+                    </Link>
+                    <ul
+                        className={clsx(
+                        "absolute right-0 bg-white shadow-md p-4 w-40 mt-6 transition-all duration-300",
+                        {
+                            "opacity-100 visible": isDropdownOpen,
+                            "opacity-0 invisible": !isDropdownOpen,
+                        }
+                        )}
+                    >
+                        {USER_ELEMENT && USER_ELEMENT.map((item, index) => (
+                        <li key={index}>
+                            <Link
+                            className={clsx("default-nav", activePath(item.path))}
+                            to={item.path}
+                            >
+                            {item.name}
+                            </Link>
+                        </li>
+                        ))}
+      </ul>
+    </div>
+                     <Link to="#" className="block text-gray-900 transition-all duration-500 hover:text-indigo-600 text-lg sm:text-base"
                 ><i className="ri-shuffle-line"></i>
                 </Link>
                 <Link to="#" className="block text-gray-900 transition-all duration-500 hover:text-indigo-600 text-lg sm:text-base"
@@ -71,16 +111,15 @@ const HomeBanner = () => {
                 </div>
                 <div className="items-center justify-between w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                     <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                        {
-                            NAVBAR_ELEMENT && NAVBAR_ELEMENT.map((item,index) => (
-                                <li>
-                                <Link 
-                                key={index}
-                                to={item.path}
-                                    className="block py-2 pl-3 pr-4 text-linkTop text-[15px] border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">{item.name}</Link>
-                            </li>
-                            ))
-                        }
+                         {
+                               NAVBAR_ELEMENT && NAVBAR_ELEMENT.map((item, index) => (
+                                 <li className={styles.linkcolors} key={index}>
+                                 <Link className={clsx("default-nav",activePath(item.path))} to={item.path}>
+                                {item.name}
+                                </Link>
+                                 </li>
+                                 ))
+                                } 
                     
                     </ul>
                 </div>

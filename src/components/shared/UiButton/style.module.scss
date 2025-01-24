@@ -12,6 +12,17 @@
     line-height: 1;
     padding: 19px 50px;
     text-transform: uppercase;
+    &.login{
+        background-color: #f2f2f2;
+        border: none;
+        color: #333;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1;
+        padding: 11px 30px;
+        text-transform: uppercase;
+    }
     &.primary{
         color: white;
         background-color: #007bff;
