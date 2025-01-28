@@ -1,10 +1,10 @@
 import React from 'react'
 import UiHeader from '../../../components/layout/UiLayout/UiHeader'
 import BreadCrumbs from '../../../components/shared/BreadCrumbs'
-import RegisterLayout from '../../../components/layout/registerLayout'
+import LoginLayout from '../../../components/layout/LoginLayout'
 
 
-const RegisterPage = () => {
+const LoginPage = () => {
   const breadCrumbs = [
     {
       title: 'Home',
@@ -19,9 +19,9 @@ const RegisterPage = () => {
     <div>
     <UiHeader/>
     <BreadCrumbs breadCrumb={breadCrumbs}/>
-    <RegisterLayout />
+    <LoginLayout />
     </div>
   )
 }
 
-export default RegisterPage
+export default LoginPage

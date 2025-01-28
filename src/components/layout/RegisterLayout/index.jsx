@@ -1,31 +1,27 @@
-import { useContext, useState } from "react"
-import UiButton from "../../../components/shared/UiButton"
-import { signInWithEmailAndPassword } from "firebase/auth"
-import { auth } from "../../../firebase";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react'
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import UiButton from '../../shared/UiButton'
+import {auth} from '../../../firebase'
+import { useNavigate } from 'react-router-dom'
 
-const LoginPage = () => {
-
-    const navigate = useNavigate()
-    const [form, setForm] = useState({
-        email: "",
-        password: ""
+const RegisterLayout = () => {
+    const navigate = useNavigate();
+  const [form,setForm] = useState({
+    email: '',
+    password: ''
+  })
+  const handleChange = (e) => {
+    setForm({...form,[e.target.name]:e.target.value })
+  }
+  const handleLogin = () => {
+    createUserWithEmailAndPassword(auth, form.email, form.password).then((res) => {
+      sessionStorage.setItem('token', res.user.accessToken)
+      navigate("/login")
     })
-    const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value })
-    }
-    const handleLogin = () => {
-        signInWithEmailAndPassword(auth, form.email, form.password).then((res) => {
-            sessionStorage.setItem("token", res.user.accessToken)
-            localStorage.setItem("user", JSON.stringify(res.user))
-            navigate("/admin");
+  }
 
-        }).catch((err) => {
-            window.alert(err.message)
-        })
-    }
-    return (
-        <div className="flex flex-col justify-center py-12 sm:px-6 lg:px-8 px-6">
+  return (
+    <div className="flex flex-col justify-center py-12 sm:px-6 lg:px-8 px-6">
     <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
             Login Register
@@ -105,7 +101,7 @@ const LoginPage = () => {
         </div>
     </div>
 </div>
-    )
+  )
 }
 
-export default LoginPage
+export default RegisterLayout

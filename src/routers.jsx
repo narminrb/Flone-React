@@ -4,10 +4,11 @@ import HomePage from "./pages/ui/home";
 import ServicePage from "./pages/ui/services";
 import BlogDetail from "./pages/ui/blog-detail";
 import ContactPage from "./pages/ui/contact";
-import LoginLayout from "./components/layout/LoginLayout";
 import BlogPage from "./pages/ui/blog";
-import LoginPage from "./pages/ui/register";
 import RegisterPage from "./pages/ui/register";
+import SideBar from "./components/layout/AdminLayout/SideBar";
+import AdminProductsPage from "./pages/admin/products";
+import LoginPage from "./components/layout/LoginLayout";
 
 
 export const router = createBrowserRouter([
@@ -46,5 +47,25 @@ export const router = createBrowserRouter([
     {
         path: "/register",
         element: <RegisterPage/>,
+    },
+    {
+        path: "/login",
+        element: <LoginPage/>,
+        errorElement: <div>Not Found</div>,
+    },
+    {
+        path: "/admin",
+       element: <SideBar/>,
+        children: [
+            {
+            path: "/admin",
+            element:<div>Admin Panel</div>,
+            errorElement:<div>Not Found</div>
+        },
+        {
+            path: "/admin/products",
+            element: <AdminProductsPage/>,
+        }
+    ]
     }
   ]);

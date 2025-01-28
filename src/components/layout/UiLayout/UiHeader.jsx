@@ -23,7 +23,7 @@ const UiHeader = () => {
               }
   return (
     <div className={styles.customContainer}>
-        <footer className="w-full py-6 bg-transparent">
+        <footer className="w-full py-6 bg-transparent hidden md:block">
             <div className="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center">
                     <ul className="text-lg flex items-center gap-7 md:gap-12 transition-all duration-500 mb-0">
@@ -84,7 +84,7 @@ const UiHeader = () => {
                 </div>
             </div>
         </footer>
-        <nav className="bg-transparent border-gray-200 py-6 dark:bg-gray-900 border-customGray border-t">
+        <nav className="bg-transparent border-gray-200 py-6 dark:bg-gray-900 border-customGray border-t hidden md:block">
     <div className="flex flex-wrap items-center justify-center max-w-screen-xl px-4 mx-auto">
         <div className="flex items-center lg:order-2">
             <div className="hidden mt-2 mr-4 sm:inline-block">
