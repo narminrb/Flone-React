@@ -1,8 +1,11 @@
+import AdminProductContainer from '@/components/themplate/AdminThemplates/ProductsContainer'
 import React from 'react'
 
 const AdminProductsPage = () => {
   return (
-    <div>AdminProductsPage</div>
+    <div>
+        <AdminProductContainer/>
+    </div>
   )
 }
 
