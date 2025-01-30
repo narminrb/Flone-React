@@ -34,12 +34,9 @@ const DialogContent = React.forwardRef(({ className, children, ...props }, ref) 
       )}
       {...props}
     >
-      {/* Scrollable Content */}
       <div className="overflow-y-auto max-h-[70vh] p-4">
         {children}
       </div>
-
-      {/* Sticky Footer */}
       <div className="sticky bottom-0 bg-background p-4 border-t">
         <DialogPrimitive.Close
           className="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"

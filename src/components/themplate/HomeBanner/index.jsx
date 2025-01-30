@@ -27,7 +27,7 @@ const HomeBanner = () => {
   return (
     <div className='realative'>
          <div className={styles.customContainer}>
-        <footer className="w-full py-6 bg-transparent absolute top-0 left-0 w-full z-10 bg-transparent border-none hidden md:block">
+        <footer className="w-full py-6 bg-transparent absolute top-0 left-0 z-30 border-none hidden md:block">
             <div className="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center">
                     <ul className="text-lg flex items-center gap-7 md:gap-12 transition-all duration-500 mb-0">
@@ -45,7 +45,7 @@ const HomeBanner = () => {
                 <Link to="#" className="block text-gray-900 transition-all duration-500 hover:text-indigo-600 text-lg sm:text-base"
                 ><i className="ri-search-line"></i>
                 </Link>
-                <div className="relative">
+                <div className="relative z-50">
                     <Link
                         to="#"
                         className="block text-gray-900 transition-all duration-500 hover:text-indigo-600"
@@ -54,6 +54,7 @@ const HomeBanner = () => {
                         <i className="ri-user-5-line"></i>
                     </Link>
                     <ul
+                    style={{ zIndex: 9999 }}
                         className={clsx(
                         "absolute right-0 bg-white shadow-md p-4 w-40 mt-6 transition-all duration-300",
                         {
@@ -72,8 +73,8 @@ const HomeBanner = () => {
                             </Link>
                         </li>
                         ))}
-      </ul>
-    </div>
+                        </ul>
+                        </div>
                      <Link to="#" className="block text-gray-900 transition-all duration-500 hover:text-indigo-600 text-lg sm:text-base"
                 ><i className="ri-shuffle-line"></i>
                 </Link>

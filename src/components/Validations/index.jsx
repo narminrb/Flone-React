@@ -6,7 +6,7 @@ export const ProductValidation = Yup.object().shape({
     price: Yup.number("this field accept just string").required('Price is required'),
     discountPrice: Yup.number().required('Discount Price is required'),
     pricePerCent: Yup.number().required('Price Per Cent is required'),
-    // category: Yup.string().required('Category is required'),
+    filterThing: Yup.string().required('Filter is required'),
     mainImage: Yup.string().required('Main Image is required'),
     hoverImage: Yup.string().required('Hover Image is required'),
 })

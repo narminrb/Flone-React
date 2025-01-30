@@ -7,8 +7,8 @@ import ContactPage from "./pages/ui/contact";
 import BlogPage from "./pages/ui/blog";
 import RegisterPage from "./pages/ui/register";
 import AdminProductsPage from "./pages/admin/products";
-import LoginPage from "./components/layout/LoginLayout";
 import { AdminSidebar } from "./components/layout/AdminLayout/SideBar";
+import LoginPage from "./pages/ui/login";
 
 
 export const router = createBrowserRouter([

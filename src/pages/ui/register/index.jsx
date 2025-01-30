@@ -11,8 +11,8 @@ const RegisterPage = () => {
       link: '/'
     },
     {
-      title: 'Login',
-      link: '/login'
+      title: 'Register',
+      link: '/register'
     }
   ]
   return (

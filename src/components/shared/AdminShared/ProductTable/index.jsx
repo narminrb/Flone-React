@@ -48,7 +48,7 @@ const ProductTable = () => {
     },
     {
         id: 4,
-        name: 'category'
+        name: 'filter'
     },
     {
         id: 5,
@@ -90,6 +90,7 @@ const ProductTable = () => {
             price: '',
             discountPrice: '',
             pricePerCent: '',
+            filterThing: '',
             mainImage: '',
             hoverImage: ''
         },
@@ -101,6 +102,7 @@ const ProductTable = () => {
                 price: value.price,
                 discountPrice: value.discountPrice,
                 pricePerCent: value.pricePerCent,
+                filterThing: value.filterThing,
                 mainImage: value.mainImage,
                 hoverImage: value.hoverImage
             }
@@ -125,6 +127,17 @@ const ProductTable = () => {
         deleteMutate(id)
     }
 
+    const handleFileChange = (event, field) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                formik.setFieldValue(field, reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+    
 
     if (bookIsErr) return <div>{bookErr.message}</div>
 
@@ -133,183 +146,139 @@ const ProductTable = () => {
 
 
     return (
-        <div className='container mx-auto'>
-
-            <div className='my-20'>
-                <div className='max-w-5xl w-full'>
-                    <CustomModal open={openModal} setOpen={setOpenModal} >
-                        <form
-                            onSubmit={(e) => {
-                                e.preventDefault()
-                                formik.handleSubmit()
-                            }}
-                            className='p-4 flex flex-col gap-4'>
-                            <div>
-                                <Label className='mb-2'>Product Title</Label>
-                                <Input
-                                    value={formik.values.title}
-                                    onChange={formik.handleChange}
-                                    className="outline-none outline-offset-0   
-                                focus:ring-0  focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:ring-offset-transparent
-                                " placeholder='please add product title' name="title" />
-                                {formik.errors.title && formik.touched.title && <p className='text-red-600'>{formik.errors.title}</p>}
-                            </div>
-                            <div>
-                                <Label className='mb-2'>Product price</Label>
-                                <Input
-                                    value={formik.values.price}
-                                    onChange={formik.handleChange}
-
-                                    className="outline-none outline-offset-0   
-                                focus:ring-0  focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:ring-offset-transparent
-                                " placeholder='please add product price' name="price" />
-                                {
-                                    formik.errors.price && formik.touched.price && <p className='text-red-600'>{formik.errors.price}</p>
-                                }
-                            </div>
-                            <div>
-                                <Label className='mb-2'>Product DisCountPrice</Label>
-                                <Input
-                                    value={formik.values.discountPrice}
-                                    onChange={formik.handleChange}
-                                    className="outline-none outline-offset-0   
-                                focus:ring-0  focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:ring-offset-transparent
-                                " placeholder='Please add discount Price'
-
-                                    name="discountPrice" />
-                                {
-                                    formik.errors.discountPrice && formik.touched.discountPrice && <p className='text-red-600'>{formik.errors.discountPrice}</p>
-                                }
-                            </div>
-                            <div>
-                                <Label className='mb-2'>Product Price per Cent %</Label>
-                                <Input
-                                    value={formik.values.pricePerCent}
-                                    onChange={formik.handleChange}
-                                    className="outline-none outline-offset-0   
-                                focus:ring-0  focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:ring-offset-transparent
-                                "placeholder='Please add Product Price per cent %' name="pricePerCent"
-
-                                />
-                                {
-                                    formik.errors.pricePerCent && formik.touched.pricePerCent && <p className='text-red-600'>{formik.errors.pricePerCent}</p>
-                                }
-                            </div>
-                            <div>
-                                <Label className='mb-2'>Product  Main Image </Label>
-                                <Input
-                                    value={formik.values.mainImage}
-                                    onChange={formik.handleChange}
-                                    type='file'
-                                    className="outline-none outline-offset-0   
-                                focus:ring-0  focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:ring-offset-transparent
-                                " name="mainImage"
-
-                                />
-                                {
-                                    formik.errors.mainImage && formik.touched.mainImage && <p className='text-red-600'>{formik.errors.mainImage}</p>
-                                }
-                            </div>
-                            <div>
-                                <Label className='mb-2'>Product  Hover Image </Label>
-                                <Input
-                                    value={formik.values.hoverImage}
-                                    onChange={formik.handleChange}
-                                    type='file'
-                                    className="outline-none outline-offset-0   
-                                focus:ring-0  focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:ring-offset-transparent
-                                " name="hoverImage"
-
-                                />
-                                {
-                                    formik.errors.hoverImage && formik.touched.hoverImage && <p className='text-red-600'>{formik.errors.hoverImage}</p>
-                                }
-                            </div>
-                            <div>
-                                <Button
-
-                                    type="submit" className="w-full">
-                                    {isPending ? 'Loading...' : 'Add Product'}
-                                </Button>
-                            </div>
-
-
-                        </form>
-                    </CustomModal>
-                </div>
-
-                <div className='flex justify-between items-center'>
-                    <h1 className='text-xl font-semibold'>Products Page</h1>
-                    <Button
-                        onClick={openModalHandler}
-                        className='bg-blue-200 text-blue-600 hover:bg-blue-300 hover:text-blue-600'>Add Product</Button>
-                </div>
-                {
-                    (bookData?.length == 0) && <DataNotFoundContainer />
-                }
-                {
-                    bookIsLoading && <div className='flex justify-center items-center h-96'>
-                        <div className="border-gray-300 h-12 w-12 animate-spin rounded-full border-4 border-t-blue-600" />
+        <div className='container mx-auto px-4 md:px-6'>
+    <div className='my-20'>
+        <div className='max-w-5xl w-full'>
+            <CustomModal open={openModal} setOpen={setOpenModal}>
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault()
+                        formik.handleSubmit()
+                    }}
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="w-full">
+                        <Label className='mb-2'>Product Title</Label>
+                        <Input
+                            value={formik.values.title}
+                            onChange={formik.handleChange}
+                            className="outline-none w-full focus:ring-0 focus-visible:ring-0"
+                            placeholder='please add product title' name="title" />
+                        {formik.errors.title && formik.touched.title && <p className='text-red-600'>{formik.errors.title}</p>}
                     </div>
-                }
+                    <div className="w-full">
+                        <Label className='mb-2'>Product price</Label>
+                        <Input
+                            value={formik.values.price}
+                            onChange={formik.handleChange}
+                            className="outline-none w-full focus:ring-0 focus-visible:ring-0"
+                            placeholder='please add product price' name="price" />
+                        {formik.errors.price && formik.touched.price && <p className='text-red-600'>{formik.errors.price}</p>}
+                    </div>
+                    <div className="w-full">
+                        <Label className='mb-2'>Product Discount Price</Label>
+                        <Input
+                            value={formik.values.discountPrice}
+                            onChange={formik.handleChange}
+                            className="outline-none w-full focus:ring-0 focus-visible:ring-0"
+                            placeholder='Please add discount Price' name="discountPrice" />
+                        {formik.errors.discountPrice && formik.touched.discountPrice && <p className='text-red-600'>{formik.errors.discountPrice}</p>}
+                    </div>
+                    <div className="w-full">
+                        <Label className='mb-2'>Product Price per Cent %</Label>
+                        <Input
+                            value={formik.values.pricePerCent}
+                            onChange={formik.handleChange}
+                            className="outline-none w-full focus:ring-0 focus-visible:ring-0"
+                            placeholder='Please add Product Price per cent %' name="pricePerCent" />
+                        {formik.errors.pricePerCent && formik.touched.pricePerCent && <p className='text-red-600'>{formik.errors.pricePerCent}</p>}
+                    </div>
+                    <div className="w-full">
+                        <Label className='mb-2'>Product Filter</Label>
+                        <Input
+                            value={formik.values.filterThing}
+                            onChange={formik.handleChange}
+                            className="outline-none w-full focus:ring-0 focus-visible:ring-0"
+                            placeholder='Please add Product Filter' name="filterThing" />
+                        {formik.errors.filterThing && formik.touched.filterThing && <p className='text-red-600'>{formik.errors.filterThing}</p>}
+                    </div>
+                    <div className="w-full">
+                        <Label className='mb-2'>Product Main Image</Label>
+                        <Input
+                            type='file'
+                            onChange={(e) => handleFileChange(e, "mainImage")}
+                            className="outline-none w-full focus:ring-0" name="mainImage" />
+                        {formik.errors.mainImage && formik.touched.mainImage && <p className='text-red-600'>{formik.errors.mainImage}</p>}
+                    </div>
+                    <div className="w-full">
+                        <Label className='mb-2'>Product Hover Image</Label>
+                        <Input
+                            type='file'
+                            onChange={(e) => handleFileChange(e, "hoverImage")}
+                            className="outline-none w-full focus:ring-0" name="hoverImage" />
+                        {formik.errors.hoverImage && formik.touched.hoverImage && <p className='text-red-600'>{formik.errors.hoverImage}</p>}
+                    </div>
+                    <div className="w-full sm:col-span-2">
+                        <Button type="submit" className="w-full">{isPending ? 'Loading...' : 'Add Product'}</Button>
+                    </div>
+                </form>
+            </CustomModal>
+        </div>
+
+        <div className='flex flex-col sm:flex-row justify-between items-center gap-4'>
+            <h1 className='text-xl font-semibold'>Products Page</h1>
+            <Button onClick={openModalHandler} className='bg-blue-200 text-blue-600 hover:bg-blue-300 hover:text-blue-600'>Add Product</Button>
+        </div>
+
+        {bookIsLoading ? (
+            <div className='flex justify-center items-center h-96'>
+                <div className="border-gray-300 h-12 w-12 animate-spin rounded-full border-4 border-t-blue-600" />
+            </div>
+        ) : (
+            bookData?.length === 0 ? <DataNotFoundContainer /> : (
                 <Table>
                     <TableCaption>A list of your recent invoices.</TableCaption>
                     <TableHeader>
                         <TableRow>
-                            {
-                                tableHeader && tableHeader.map((header, index) => (
-                                    <TableHead
-                                        key={index} >{header.name}</TableHead>
-                                ))
-                            }
-                            <TableHead>
-                            </TableHead>
-
+                            {tableHeader && tableHeader.map((header, index) => (
+                                <TableHead key={index}>{header.name}</TableHead>
+                            ))}
+                            <TableHead></TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {bookData && bookData.map((book, index) => (
+                        {bookData.map((book, index) => (
                             <TableRow key={index}>
                                 <TableCell className="font-medium">{book.id}</TableCell>
                                 <TableCell className="font-medium">
                                     <div className='w-20 h-20 overflow-hidden'>
-                                        <img
-                                            className='w-full h-full object-cover'
-                                            src={book.mainImage} alt={book.title} />
+                                        <img className='w-full h-full object-cover' src={book.mainImage} alt={book.title} />
                                     </div>
                                 </TableCell>
                                 <TableCell className="font-medium">
                                     <div className='w-20 h-20 overflow-hidden'>
-                                        <img
-                                            className='w-full h-full object-cover'
-                                            src={book.hoverImage} alt={book.title} />
+                                        <img className='w-full h-full object-cover' src={book.hoverImage} alt={book.title} />
                                     </div>
                                 </TableCell>
-                                <TableCell>{book.category}</TableCell>
-
-                                <TableCell >{book.price}</TableCell>
-                                <TableCell >{book.discountPrice}</TableCell>
-                                <TableCell >{book.pricePerCent}</TableCell>
-                                <TableCell >{book.title}</TableCell>
+                                <TableCell>{book.filterThing}</TableCell>
+                                <TableCell>{book.price}</TableCell>
+                                <TableCell>{book.discountPrice}</TableCell>
+                                <TableCell>{book.pricePerCent}</TableCell>
+                                <TableCell>{book.title}</TableCell>
                                 <TableCell>
-                                    <Button
-                                        onClick={() => handleDelete(book?.id)}
-                                        className='bg-red-200 text-red-600 hover:bg-red-300 hover:text-red-600'>
-                                        {deleteLoading ? 'Loading...' : 'Delete'}
-                                    </Button>
+                                    <Button onClick={() => handleDelete(book.id)} className='bg-red-200 text-red-600 hover:bg-red-300 hover:text-red-600'>{deleteLoading ? 'Loading...' : 'Delete'}</Button>
                                 </TableCell>
                                 <TableCell>
                                     <Button className='bg-blue-200 text-blue-600 hover:bg-blue-300 hover:text-blue-600'>Edit</Button>
-
                                 </TableCell>
-
                             </TableRow>
                         ))}
                     </TableBody>
-
                 </Table>
-            </div>
-        </div >
+            )
+        )}
+    </div>
+</div>
+
     )
 }
 

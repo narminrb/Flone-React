@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "id": 1,
+      "id": "1",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/1.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/2.jpg",
       "title": "Lorem ipsum flower one",
@@ -12,7 +12,7 @@
       "discountPrice": 20
     },
     {
-      "id": 2,
+      "id": "2",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/3.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/4.jpg",
       "title": "Lorem ipsum flower four",
@@ -23,7 +23,7 @@
       "discountPrice": 25
     },
     {
-      "id": 3,
+      "id": "3",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/5.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/6.jpg",
       "title": "Lorem ipsum flower three",
@@ -34,7 +34,7 @@
       "discountPrice": 30
     },
     {
-      "id": 4,
+      "id": "4",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/7.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/8.jpg",
       "title": "Lorem ipsum flower two",
@@ -45,7 +45,7 @@
       "discountPrice": 35
     },
     {
-      "id": 5,
+      "id": "5",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/2.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/3.jpg",
       "title": "Lorem ipsum flower two",
@@ -56,7 +56,7 @@
       "discountPrice": 40
     },
     {
-      "id": 6,
+      "id": "6",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/1.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/2.jpg",
       "title": "Lorem ipsum flower two",
@@ -67,7 +67,7 @@
       "discountPrice": 45
     },
     {
-      "id": 7,
+      "id": "7",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/3.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/4.jpg",
       "title": "Lorem ipsum flower two",
@@ -78,7 +78,7 @@
       "discountPrice": 50
     },
     {
-      "id": 8,
+      "id": "8",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/4.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/5.jpg",
       "title": "Lorem ipsum flower two",
@@ -89,7 +89,7 @@
       "discountPrice": 55
     },
     {
-      "id": 9,
+      "id": "9",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/1.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/2.jpg",
       "title": "Lorem ipsum flower two",
@@ -100,7 +100,7 @@
       "discountPrice": 60
     },
     {
-      "id": 10,
+      "id": "10",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/3.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/4.jpg",
       "title": "Lorem ipsum flower two",
@@ -111,7 +111,7 @@
       "discountPrice": 65
     },
     {
-      "id": 11,
+      "id": "11",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/4.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/5.jpg",
       "title": "Lorem ipsum flower two",
@@ -122,7 +122,7 @@
       "discountPrice": 70
     },
     {
-      "id": 12,
+      "id": "12",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/5.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/6.jpg",
       "title": "Lorem ipsum flower two",
@@ -133,7 +133,7 @@
       "discountPrice": 80
     },
     {
-      "id": 13,
+      "id": "13",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/7.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/8.jpg",
       "title": "Lorem ipsum flower two",
@@ -144,7 +144,7 @@
       "discountPrice": 90
     },
     {
-      "id": 14,
+      "id": "14",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/8.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/1.jpg",
       "title": "Lorem ipsum flower two",
@@ -155,7 +155,7 @@
       "discountPrice": 100
     },
     {
-      "id": 15,
+      "id": "15",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/1.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/2.jpg",
       "title": "Lorem ipsum flower two",
@@ -166,7 +166,7 @@
       "discountPrice": 110
     },
     {
-      "id": 16,
+      "id": "16",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/4.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/5.jpg",
       "title": "Lorem ipsum flower two",
@@ -177,7 +177,7 @@
       "discountPrice": 120
     },
     {
-      "id": 17,
+      "id": "17",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/5.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/6.jpg",
       "title": "Lorem ipsum flower two",
@@ -188,7 +188,7 @@
       "discountPrice": 130
     },
     {
-      "id": 18,
+      "id": "18",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/7.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/8.jpg",
       "title": "Lorem ipsum flower two",
@@ -199,7 +199,7 @@
       "discountPrice": 140
     },
     {
-      "id": 19,
+      "id": "19",
       "mainImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/8.jpg",
       "hoverImage": "https://flone.jamstacktemplates.dev/assets/img/product/flowers/1.jpg",
       "title": "Lorem ipsum flower two",
@@ -208,15 +208,6 @@
       "category": "New",
       "filterThing": "Sale Items",
       "discountPrice": 150
-    },
-    {
-      "id": "62d484b4-8778-4bd0-b9f9-22e9178f91e0",
-      "title": "aa",
-      "price": "23",
-      "discountPrice": "23",
-      "pricePerCent": "23",
-      "mainImage": "C:\\fakepath\\MyNewCv3.png",
-      "hoverImage": "C:\\fakepath\\NewCv3.png"
     }
   ]
 }
